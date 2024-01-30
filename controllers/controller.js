@@ -29,7 +29,7 @@ export const getUser = async (req, res) => {
     }
 }
 
-export const postFilm = async (req, res) => {
+export const postUser = async (req, res) => {
     const {first_name, last_name, age} = req.body;
     try {
         const { rows } = await pool.query("INSERT INTO users (first_name, last_name, age) VALUES ($1, $2, $3) RETURNING *", [first_name, last_name, age]);
@@ -40,7 +40,7 @@ export const postFilm = async (req, res) => {
     }
 }
 
-export const modifyFilm = async (req, res) => {
+export const modifyOrder = async (req, res) => {
     const {id} = req.params;
     const {age} = req.body;
     try {
@@ -51,7 +51,7 @@ export const modifyFilm = async (req, res) => {
         res.sendStatus(500)
     }
 }
-export const deleteFilm = async (req, res) => {
+export const deleteOrder = async (req, res) => {
     const {id} = req.params;
     try {
         const { rows } = await pool.query("DELETE FROM users WHERE id = $1 RETURNING *", [id]);

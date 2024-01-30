@@ -6,9 +6,9 @@ const route = express.Router();
 
 route.get("/", getUsers); 
 route.get("/:id", getUser);
-route.post("/", postFilm);
-route.put("/:id", modifyFilm);
-route.delete("/:id", deleteFilm);
+route.post("/", postUser);
+route.put("/:id", modifyUser);
+route.delete("/:id", deleteUser);
 
 
 
