@@ -40,7 +40,7 @@ export const postUser = async (req, res) => {
     }
 }
 
-export const modifyOrder = async (req, res) => {
+export const modifyUser = async (req, res) => {
     const {id} = req.params;
     const {age} = req.body;
     try {
@@ -51,7 +51,7 @@ export const modifyOrder = async (req, res) => {
         res.sendStatus(500)
     }
 }
-export const deleteOrder = async (req, res) => {
+export const deleteUser = async (req, res) => {
     const {id} = req.params;
     try {
         const { rows } = await pool.query("DELETE FROM users WHERE id = $1 RETURNING *", [id]);
