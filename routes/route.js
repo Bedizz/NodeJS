@@ -1,12 +1,12 @@
 import express  from "express";
 import { getUsers, getUser, postUser ,modifyUser, deleteUser, getOrdersByUser, checkActive } from "../controllers/controller.js";
-import { userValidation } from "../controllers/controller.js";
+import { userValidation ,checkingUser } from "../controllers/controller.js";
 
 
 const route = express.Router();
 
 route.get("/", getUsers); 
-route.get("/:id", getUser);
+route.get("/:id",checkingUser, getUser);
 route.post("/",userValidation, postUser);
 route.put("/:id",userValidation, modifyUser);
 route.delete("/:id", deleteUser);
