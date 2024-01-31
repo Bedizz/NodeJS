@@ -1,14 +1,17 @@
 import express  from "express";
-import { getUsers, getUser, postUser ,modifyUser, deleteUser } from "../controllers/controller.js";
+import { getUsers, getUser, postUser ,modifyUser, deleteUser, getOrdersByUser, checkActive } from "../controllers/controller.js";
+import { userValidation } from "../controllers/controller.js";
 
 
 const route = express.Router();
 
 route.get("/", getUsers); 
 route.get("/:id", getUser);
-route.post("/", postUser);
-route.put("/:id", modifyUser);
+route.post("/",userValidation, postUser);
+route.put("/:id",userValidation, modifyUser);
 route.delete("/:id", deleteUser);
+route.get('/:id/orders',getOrdersByUser)
+route.get('/:id/check-active',checkActive)
 
 
 
